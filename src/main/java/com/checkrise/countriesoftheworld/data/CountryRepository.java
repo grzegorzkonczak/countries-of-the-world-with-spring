@@ -34,12 +34,10 @@ public class CountryRepository {
     }
 
     public Country getCountryByName(String name){
-        for(Country country : ALL_COUNTRIES){
-            if (country.getName().toLowerCase().equals(name.toLowerCase())){
-                return country;
-            }
-        }
-        return null;
+        return ALL_COUNTRIES.stream()
+                .filter(country -> country.getName().toLowerCase().equals(name.toLowerCase()))
+                .findFirst()
+                .orElseThrow(NotFoundException::new);
     }
 
 }
