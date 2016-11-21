@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -14,34 +14,10 @@
 		</div>
 	</header>
 	<div class="container">
-		<div class="country">
-			<a href="india.html">
-				<img src="flags/india.png" alt="Flag of India"/>
-				<h4>India</h4>
-			</a>
-		</div>
-		<div class="country">
-			<a href="#">
-				<img src="flags/kenya.png" alt="Flag of Kenya"/>
-				<h4>Kenya</h4>
-			</a>
-		</div>
-		<div class="country">
-			<a href="#">
-				<img src="flags/ecuador.png" alt="Flag of Ecuador"/>
-				<h4>Ecuador</h4>
-			</a>
-		</div>
-		<div class="country">
-			<a href="#">
-				<img src="flags/france.png" alt="Flag of France"/>
-				<h4>France</h4>
-			</a>
-		</div>
-		<div class="country">
-			<a href="#">
-				<img src="flags/italy.png" alt="Flag of Italy"/>
-				<h4>Italy</h4>
+		<div th:each="country : ${countries}" class="country">
+			<a th:href="@{'/country/' + ${#strings.toLowerCase(country.name)}}">
+				<img th:src="@{'/flags/' + ${#strings.toLowerCase(country.name)} + '.png'}" th:alt="@{'Flag of' + ${country.name}}"/>
+				<h4 th:text="${country.name}">India</h4>
 			</a>
 		</div>
 	</div>
