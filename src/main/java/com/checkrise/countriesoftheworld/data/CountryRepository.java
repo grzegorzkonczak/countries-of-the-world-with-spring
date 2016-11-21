@@ -35,7 +35,7 @@ public class CountryRepository {
 
     public Country getCountryByName(String name){
         for(Country country : ALL_COUNTRIES){
-            if (country.getName().equals(name)){
+            if (country.getName().toLowerCase().equals(name.toLowerCase())){
                 return country;
             }
         }
