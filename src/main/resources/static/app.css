@@ -24,6 +24,19 @@ header h1 a {
 	text-decoration: none;
 }
 
+header h5 {
+    margin: 10px 0;
+	color: #fff;
+	text-decoration: none;
+}
+
+header h5 a {
+    margin-left: 1em;
+    margin-right: 1em;
+	color: #fff;
+	text-decoration: none;
+}
+
 .container {
 	margin: 0;
 	padding: 10px;

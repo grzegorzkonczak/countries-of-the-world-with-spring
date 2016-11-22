@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Grzegorz Kończak on 21.11.2016.
@@ -38,6 +39,18 @@ public class CountryRepository {
                 .filter(country -> country.getName().toLowerCase().equals(name.toLowerCase()))
                 .findFirst()
                 .orElseThrow(NotFoundException::new);
+    }
+
+    public List<Country> getCountriesSortedByPopulation() {
+        return ALL_COUNTRIES.stream().sorted((country1, country2) ->
+            Integer.compare(country2.getPopulation(), country1.getPopulation()))
+                .collect(Collectors.toList());
+    }
+
+    public List<Country> getCountriesSortedByName() {
+        return ALL_COUNTRIES.stream().sorted((country1, country2) ->
+                country1.getName().compareTo(country2.getName()))
+                .collect(Collectors.toList());
     }
 
 }
