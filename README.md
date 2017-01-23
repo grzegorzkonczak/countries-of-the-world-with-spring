@@ -9,7 +9,7 @@ Project was meant to follow a set of requirements. Base requirements were as fol
   - index page mapped as "/"
   - details page mapped as "/countries/{id}" or similar
 3. Includes a separate class marked as @Component or @Repository, which is injected into the controller with @Autowired. 
-This class includes at least two methods - one for fetching all countries and one for fetching a single country using its identifier
+  This class includes at least two methods - one for fetching all countries and one for fetching a single country using its identifier
 4. All information is present: Country flags, flag thumbnails, accurate and clickable links
 5. Detail view shows:
   - Country name
